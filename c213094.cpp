@@ -1,19 +1,21 @@
 #include<iostream>
 #include<fstream>
+
 using namespace std;
 int main()
 {
-  int arr[100],i,j,f=0;
+  int arr[100],i,j,f=0,cnt=0;
 
-  std::ifstream fin("input.txt");
-  std::ofstream fout("output.txt");
-  for(i=0;i<10;i++)
+  ifstream fin("input.txt");
+  ofstream fout("output.txt");
+  for(i=0;!fin.eof();i++)
     {
         fin>>arr[i];
+        cnt++;
 
     }
 
-    for(i=0;i<10;i++)
+    for(i=0;i<cnt;i++)
     {
         if(arr[i]== 0|| arr[i]== 1)
         {
@@ -41,12 +43,12 @@ int main()
 
         if(f==1)
         {
-           fout<<arr[i]<< " is prime"<< std::endl;
+           fout<<arr[i]<< " is prime"<< endl;
 
         }
         else if(f==2)
         {
-            fout<<arr[i]<< " is not prime"<< std::endl;
+            fout<<arr[i]<< " is composite"<< endl;
         }
     }
 
